@@ -4,9 +4,6 @@ import sqlite3
 
 
 
-    
-    
-
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
@@ -31,10 +28,6 @@ def add():
     db.session.add(new_todo)
     db.session.commit()
     return redirect(url_for('index2'))
-
-    
-
-
 
     
 
