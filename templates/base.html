@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ the_title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Source+Sans+Pro" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+    
+<body>
+    
+    
+    <form action = "/test" method = "post">
+        <button type="submit">home</button>
+    </form>
+    
+    <h1> TODO APP</h1>
+    
+    <h3><marquee> Welcome to Todo!</marquee></h3>
+    
+    <h2><marquee direction="right" 
+        behavior="alternate" 
+        style="border:rgb(58, 142, 169) 5px SOLID "
+        onmouseover="this.stop();"
+           onmouseout="this.start();">
+        Enter the your name inside the box
+    </marquee></h2>
+
+    
+
+    <div>
+        <form action="/add" method = "post">
+            <label for="Title">Todo list</label>
+            <input type="text" name="title" placeholder="Enter todo">
+            <button type="submit">Add</button>
+        </form>
+
+        {% for todo in todo_list %}
+            <p>{{ todo.id }} {{ todo.title }}</p>
+        {% endfor %}
+    </div>
+    
+
+</body>
+</html>
